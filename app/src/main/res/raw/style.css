@@ -1,8 +1,4 @@
 body {
+    color: white;
     background-color: black;
-}
-
-iframe {
-    display: block;
-    margin: auto;
 }
