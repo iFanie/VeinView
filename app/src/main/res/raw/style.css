@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+}
