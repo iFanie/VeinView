@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.izikode.veinview.VeinView android:id="@+id/veinview"
+    <com.izikode.izilib.veinview.VeinView
+        android:id="@+id/veinview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

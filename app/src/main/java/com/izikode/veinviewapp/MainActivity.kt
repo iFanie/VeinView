@@ -3,13 +3,13 @@ package com.izikode.veinviewapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
-import com.izikode.veinview.VeinView
-import com.izikode.veinview.VeinViewClient
-import com.izikode.veinview.VeinViewInjector
+import com.izikode.izilib.veinview.VeinView
+import com.izikode.izilib.veinview.VeinViewClient
+import com.izikode.izilib.veinview.VeinViewInjector
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var veinView: VeinView
+    private val veinView: VeinView by lazy { findViewById<VeinView>(R.id.veinview) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,22 +17,21 @@ class MainActivity : AppCompatActivity() {
 
         WebView.setWebContentsDebuggingEnabled(true)
 
-        veinView = findViewById(R.id.veinview)
         veinView.setVeinViewClient(object: VeinViewClient() {
             override fun onReadyToInject(injector: VeinViewInjector, page: String) {
 
-                injector.injectCSS(R.raw.style)
+                injector.injectCSS(R.raw.dark_google_style)
 
             }
         })
 
         veinView.setInitialScale(1)
 
-        val settings = veinView.getSettings()
+        veinView.settings.apply {
+            loadWithOverviewMode = true
+            useWideViewPort = true
+        }
 
-        settings.setLoadWithOverviewMode(true)
-        settings.setUseWideViewPort(true)
-
-        veinView.loadUrl("https://www.google.com/")
+        veinView.loadUrl("https://google.com//")
     }
 }
