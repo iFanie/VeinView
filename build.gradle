@@ -1,17 +1,60 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext {
+        Bintray = [
+                GROUP_ID : 'com.izikode.izilib',
+
+                REPO : 'izilib',
+                NAME : 'veinview',
+
+                DESCRIPTION : 'Custom WebView with build in CSS and JS injection capabilities',
+
+                WEBSITE : 'https://github.com/iFanie/VeinView',
+                GIT     : 'https://github.com/iFanie/VeinView.git',
+
+                DEV_ID    : 'iFanie',
+                DEV_NAME  : 'Fanie Veizis',
+                DEV_EMAIL : 'fanieveizis@gmail.com',
+
+                LICENCE     : 'The Apache Software License, Version 2.0',
+                LICENCE_URL : 'http://www.apache.org/licenses/LICENSE-2.0.txt',
+                LICENCES    : [ "Apache-2.0" ]
+        ]
+
+        Version = [
+                Core : [
+                        GRADLE : '3.2.1',
+                        KOTLIN : '1.3.10'
+                ],
+
+                Sdk : [
+                        BASE : 28,
+                        MIN  : 19
+                ],
+
+                Dependency : [
+                        COMPAT    : '28.0.0',
+                        RECYCLER  : '28.0.0'
+                ],
+
+                Build : [
+                        CODE    : 1,
+                        MAJOR   : 0,
+                        MINOR   : 1
+                ]
+        ]
+    }
+
     repositories {
         google()
         jcenter()
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+    dependencies {
+        classpath "com.android.tools.build:gradle:${ Version.Core.GRADLE }"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${ Version.Core.KOTLIN }"
+
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 

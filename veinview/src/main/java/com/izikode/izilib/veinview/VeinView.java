@@ -1,4 +1,4 @@
-package com.izikode.veinview;
+package com.izikode.izilib.veinview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -7,9 +7,6 @@ import android.support.annotation.RawRes;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import org.unbescape.css.CssEscape;
-import org.unbescape.javascript.JavaScriptEscape;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -82,7 +79,7 @@ public class VeinView extends WebView {
     }
 
     private void injectCSS(@NonNull String css) {
-        run(String.format(injectCSS, CssEscape.escapeCssString(css.trim())));
+        run(String.format(injectCSS, css.trim()));
     }
 
     private void injectCSS(@RawRes int cssResource) {
@@ -90,7 +87,7 @@ public class VeinView extends WebView {
     }
 
     private void injectJS(@NonNull String js) {
-        run(String.format(injectJS, JavaScriptEscape.escapeJavaScript(js.trim())));
+        run(String.format(injectJS, js.trim()));
     }
 
     private void injectJS(@RawRes int jsResource) {

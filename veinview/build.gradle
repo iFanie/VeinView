@@ -1,35 +1,63 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+ext {
+    bintrayRepo = Bintray.REPO
+    bintrayName = Bintray.NAME
+
+    publishedGroupId = Bintray.GROUP_ID
+    libraryName = Bintray.REPO
+    artifact = Bintray.NAME
+
+    libraryDescription = Bintray.DESCRIPTION
+
+    siteUrl = Bintray.WEBSITE
+    gitUrl = Bintray.GIT
+
+    libraryBuild = Version.Build.CODE
+    libraryVersion = "${ Version.Build.MAJOR }.${ Version.Build.MINOR }"
+
+    developerId = Bintray.DEV_ID
+    developerName = Bintray.DEV_NAME
+    developerEmail = Bintray.DEV_EMAIL
+
+    licenseName = Bintray.LICENCE
+    licenseUrl = Bintray.LICENCE_NAME
+    allLicenses = Bintray.LICENCES
+}
 
 android {
-
-    compileSdkVersion 27
+    compileSdkVersion Version.Sdk.BASE
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 27
+        minSdkVersion Version.Sdk.MIN
+        targetSdkVersion Version.Sdk.BASE
 
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode Version.Build.CODE
+        versionName "${ Version.Build.MAJOR }.${ Version.Build.MINOR }"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    implementation 'org.unbescape:unbescape:1.1.6.RELEASE'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${ Version.Core.KOTLIN }"
+    implementation "com.android.support:appcompat-v7:${ Version.Dependency.COMPAT }"
 }
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
