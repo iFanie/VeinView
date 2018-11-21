@@ -1,4 +1,4 @@
-package com.izikode.veinview;
+package com.izikode.izilib.veinview;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.RawRes;

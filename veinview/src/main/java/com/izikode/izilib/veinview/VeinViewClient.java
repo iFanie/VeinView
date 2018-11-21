@@ -1,7 +1,6 @@
-package com.izikode.veinview;
+package com.izikode.izilib.veinview;
 
 import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
