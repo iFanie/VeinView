@@ -49,8 +49,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${ Version.Core.KOTLIN }"
     implementation "com.android.support:appcompat-v7:${ Version.Dependency.COMPAT }"
-
-    implementation "org.unbescape:unbescape:${ Version.Dependency.UNBESCAPE }"
 }
 
 repositories {

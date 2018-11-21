@@ -1,23 +1,23 @@
 buildscript {
     ext {
         Bintray = [
-                GROUP_ID: 'com.izikode.izilib',
+                GROUP_ID : 'com.izikode.izilib',
 
-                REPO: 'izilib',
-                NAME: 'veinview',
+                REPO : 'izilib',
+                NAME : 'veinview',
 
-                DESCRIPTION: 'Custom WebView with build in CSS and JS injection capabilities',
+                DESCRIPTION : 'Custom WebView with build in CSS and JS injection capabilities',
 
-                WEBSITE: 'https://github.com/iFanie/VeinView',
-                GIT: 'https://github.com/iFanie/VeinView.git',
+                WEBSITE : 'https://github.com/iFanie/VeinView',
+                GIT     : 'https://github.com/iFanie/VeinView.git',
 
-                DEV_ID: 'iFanie',
-                DEV_NAME: 'Fanie Veizis',
-                DEV_EMAIL: 'fanieveizis@gmail.com',
+                DEV_ID    : 'iFanie',
+                DEV_NAME  : 'Fanie Veizis',
+                DEV_EMAIL : 'fanieveizis@gmail.com',
 
-                LICENCE: 'The Apache Software License, Version 2.0',
-                LICENCE_URL: 'http://www.apache.org/licenses/LICENSE-2.0.txt',
-                LICENCES: [ "Apache-2.0" ]
+                LICENCE     : 'The Apache Software License, Version 2.0',
+                LICENCE_URL : 'http://www.apache.org/licenses/LICENSE-2.0.txt',
+                LICENCES    : [ "Apache-2.0" ]
         ]
 
         Version = [
@@ -28,13 +28,12 @@ buildscript {
 
                 Sdk : [
                         BASE : 28,
-                        MIN  : 15
+                        MIN  : 19
                 ],
 
                 Dependency : [
                         COMPAT    : '28.0.0',
-                        RECYCLER  : '28.0.0',
-                        UNBESCAPE : '1.1.6.RELEASE'
+                        RECYCLER  : '28.0.0'
                 ],
 
                 Build : [
