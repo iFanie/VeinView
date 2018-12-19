@@ -23,7 +23,7 @@ buildscript {
         Version = [
                 Core : [
                         GRADLE : '3.2.1',
-                        KOTLIN : '1.3.10'
+                        KOTLIN : '1.3.11'
                 ],
 
                 Sdk : [
@@ -37,9 +37,9 @@ buildscript {
                 ],
 
                 Build : [
-                        CODE    : 1,
+                        CODE    : 2,
                         MAJOR   : 0,
-                        MINOR   : 1
+                        MINOR   : 2
                 ]
         ]
     }

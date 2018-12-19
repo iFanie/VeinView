@@ -1,7 +1,8 @@
 # VeinView
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Bintray](https://img.shields.io/badge/Bintray-0.1-lightgrey.svg)](https://dl.bintray.com/ifanie/izilib/com/izikode/izilib/veinview/0.1/)
+[![Bintray](https://img.shields.io/badge/Bintray-0.2-lightgrey.svg)](https://dl.bintray.com/ifanie/izilib/com/izikode/izilib/veinview/0.2/)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-VeinView-green.svg?style=flat )]( https://android-arsenal.com/details/1/7383 )
 
 #### Custom WebView with build in CSS and JS injection capabilities
 With VeinView you can easily inject CSS and JavaScript code into your WebView contents, and the enhance the user experience based on your individual needs.
@@ -12,7 +13,7 @@ You could apply a dark mode CSS and make Google look like this:
 
 ## Installation
 ```
-implementation 'com.izikode.izilib:veinview:0.1'
+implementation 'com.izikode.izilib:veinview:0.2'
 ```
 ## Usage
 #### Use VeinView just like you would use a vanilla WebView.
@@ -37,6 +38,12 @@ veinView.setVeinViewClient(object: VeinViewClient() {
         injector.injectCSS(R.raw.dark_google_style)
 
     }
+})
+```
+- Use the ```defaultClient``` DSL for an even simpler initialization.
+```kotlin
+veinView.setVeinViewClient(defaultClient { injector, page ->
+    injector.injectCSS(R.raw.dark_google_style)
 })
 ```
 #### Use the provided ```VeinViewInjector``` to update the contents to your needs. You can inject a raw resource or plain String objects containing your CSS or JavaScript code. In the above screenshot, the following CSS style is used:
