@@ -4,8 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import com.izikode.izilib.veinview.VeinView
-import com.izikode.izilib.veinview.VeinViewClient
-import com.izikode.izilib.veinview.VeinViewInjector
+import com.izikode.izilib.veinview.defaultClient
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,12 +16,8 @@ class MainActivity : AppCompatActivity() {
 
         WebView.setWebContentsDebuggingEnabled(true)
 
-        veinView.setVeinViewClient(object: VeinViewClient() {
-            override fun onReadyToInject(injector: VeinViewInjector, page: String) {
-
-                injector.injectCSS(R.raw.dark_google_style)
-
-            }
+        veinView.setVeinViewClient(defaultClient { injector, page ->
+            injector.injectCSS(R.raw.dark_google_style)
         })
 
         veinView.setInitialScale(1)
